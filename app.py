@@ -7,6 +7,7 @@ date = datetime.now(tz=tz)
 
 @app.route('/calculate_tax', methods=['POST'])
 def calculate_tax():
+    
     if request.is_json:
         data = request.get_json()
         currency = data.get('currency')
