@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, request
 from datetime import datetime, timezone, timedelta
+from flask_cors import CORS 
 
 app = Flask(__name__)
+CORS(app) 
 tz = timezone(timedelta(hours=7))
 date = datetime.now(tz=tz)
 
 @app.route('/calculate_tax', methods=['POST'])
 def calculate_tax():
-
     if request.is_json:
         data = request.get_json()
         currency = data.get('currency')
