@@ -14,9 +14,9 @@ def calculate_tax():
         currency = data.get('currency')
         price = data.get('price')
         payment_date = data.get('payment_date')
-        tax = "7%"
+        tax = 7
         if ((currency is not None) and (price is not None) and (payment_date is not None)):
-            total_price = price * 1.07
+            total_price = price + (price * tax)
             response_data = {
                 "currency": currency,
                 "price": price,
